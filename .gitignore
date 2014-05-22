@@ -1,0 +1,4 @@
+*.app
+DerivedData
+.DS_Store
+xcuserdatad

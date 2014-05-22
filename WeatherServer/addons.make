@@ -1,0 +1,6 @@
+ofxXmlSettings
+ofxFluid
+ofxFX
+ofxLibwebsockets
+ofxSpacebrew
+ofxUI
