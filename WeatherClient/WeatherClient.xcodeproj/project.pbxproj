@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		012C11C01949FE1A00E1888A /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD884063EDC3EE1CA26F37A /* CoreWLAN.framework */; };
+		012C11D9194A449100E1888A /* PenmanMonteith.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C11D4194A449100E1888A /* PenmanMonteith.cpp */; };
+		012C11DA194A449100E1888A /* WeatherManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C11D6194A449100E1888A /* WeatherManager.cpp */; };
 		04C82720B149CE576B8CBB06 /* ofxUIToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48CCCEA0C681DE8B4945111B /* ofxUIToggle.cpp */; };
 		084025DA517D8329301FE1B6 /* ofxUIEventArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8896AC3BECAAA504E3828F4 /* ofxUIEventArgs.cpp */; };
 		1587708E3CAC72997E43504E /* ofxUIRangeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2813E36CEFD8D1C1B70E600 /* ofxUIRangeSlider.cpp */; };
@@ -122,6 +124,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		012C11D4194A449100E1888A /* PenmanMonteith.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PenmanMonteith.cpp; sourceTree = "<group>"; };
+		012C11D5194A449100E1888A /* PenmanMonteith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenmanMonteith.h; sourceTree = "<group>"; };
+		012C11D6194A449100E1888A /* WeatherManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WeatherManager.cpp; sourceTree = "<group>"; };
+		012C11D7194A449100E1888A /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
+		012C11D8194A449100E1888A /* WUndergroundAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUndergroundAPI.h; sourceTree = "<group>"; };
 		01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
 		02677FA320D6C63B228A7562 /* ofxUIWidgetWithLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIWidgetWithLabel.h; path = ../../../addons/ofxUI/src/ofxUIWidgetWithLabel.h; sourceTree = SOURCE_ROOT; };
 		02FF3B8D243CFB85AE0909EB /* ofxUI2DGraph.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxUI2DGraph.cpp; path = ../../../addons/ofxUI/src/ofxUI2DGraph.cpp; sourceTree = SOURCE_ROOT; };
@@ -298,6 +305,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012C11D3194A449100E1888A /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				012C11D4194A449100E1888A /* PenmanMonteith.cpp */,
+				012C11D5194A449100E1888A /* PenmanMonteith.h */,
+				012C11D6194A449100E1888A /* WeatherManager.cpp */,
+				012C11D7194A449100E1888A /* WeatherManager.h */,
+				012C11D8194A449100E1888A /* WUndergroundAPI.h */,
+			);
+			name = shared;
+			path = ../../shared;
+			sourceTree = "<group>";
+		};
 		108C8D494BF6997F7A730F6E /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +637,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				012C11D3194A449100E1888A /* shared */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.mm */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.mm */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
@@ -762,11 +783,13 @@
 				9A83D1B3FB64456BC907667F /* ofxUIMinimalSlider.cpp in Sources */,
 				F440B307990F8F5CE40B9111 /* ofxUIMovingGraph.cpp in Sources */,
 				222C3AB10FA3158602718602 /* ofxUIMultiImageButton.cpp in Sources */,
+				012C11D9194A449100E1888A /* PenmanMonteith.cpp in Sources */,
 				F9C20834354ACC8337320B8C /* ofxUIMultiImageToggle.cpp in Sources */,
 				E3D59A6B55F05669B3FBF8BD /* ofxUINumberDialer.cpp in Sources */,
 				D60E54E7FD6E19BC8636E0D2 /* ofxUIRadio.cpp in Sources */,
 				1587708E3CAC72997E43504E /* ofxUIRangeSlider.cpp in Sources */,
 				59C5F2F5D7254C33C00F97CB /* ofxUIRectangle.cpp in Sources */,
+				012C11DA194A449100E1888A /* WeatherManager.cpp in Sources */,
 				FE0F1DB69ACCD163E9DA2A15 /* ofxUIRotarySlider.cpp in Sources */,
 				43BADBB2FE0F17D34B57A705 /* ofxUIScrollableCanvas.cpp in Sources */,
 				740A58CBFDFE578C83A349AF /* ofxUISlider.cpp in Sources */,

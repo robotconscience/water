@@ -2,7 +2,12 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    
+    ofAddListener(locationGetter.onLocationRetrieved, this, &ofApp::onLocation);
+    ofAddListener(locationGetter.onError, this, &ofApp::onError);
+    
+    locationGetter.getLocation();
+    weatherAPI.setup();
 }
 
 //--------------------------------------------------------------
@@ -13,6 +18,23 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
+}
+
+//--------------------------------------------------------------
+void ofApp::onLocation( Location & loc ){
+    currentLocation = loc;
+    cout <<"got location"<<endl;
+    weatherAPI.lookupEvaporation(loc.latitude, loc.longitude);
+}
+
+//--------------------------------------------------------------
+void ofApp::onError( string & event ){
+    cout << "error "<<event << endl;
+}
+
+//--------------------------------------------------------------
+void ofApp::onEvaporationLookup( int & value ){
+    cout << "evaporation: "<<value<<endl;
 }
 
 //--------------------------------------------------------------

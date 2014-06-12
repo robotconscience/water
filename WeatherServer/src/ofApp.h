@@ -5,6 +5,7 @@
 #include "ofxSpacebrew.h"
 #include "ofxRCUtils.h"
 #include "ofxLabFlexParticleSystem.h"
+#include "WeatherManager.h"
 
 class ofApp : public ofBaseApp{
 
@@ -38,6 +39,9 @@ class ofApp : public ofBaseApp{
         bool    bNeedToRead;
         ofVec2f getVelocityLatLong( float lat, float lon );
         ofVec2f getVelocity( float x, float y );
+    
+        // weather API manager
+        WeatherManager weatherManager;
     
         // files
         ofFbo fileFBO, screenFBO;

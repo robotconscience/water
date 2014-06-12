@@ -48,9 +48,7 @@ float PenmanMonteith::getEvapotranspiration( float temperatureMinF, float temper
     float psychrometricConstant = getPsychrometricConstant(atmosphericPressure);
     
     float saturationVapourPressureMin = getSaturationVapourPressure(temperatureMinC);
-    
     float saturationVapourPressureMax = getSaturationVapourPressure(temperatureMaxC);
-    
     float saturationVapourPressureMean = mean(saturationVapourPressureMin,saturationVapourPressureMax);
     
     float slopeOfSaturationVapourPressureCurve = getSlopeOfSaturationVapourPressureCurve(saturationVapourPressureMean);
@@ -107,9 +105,7 @@ float PenmanMonteith::getEvapotranspiration( float temperatureMinF, float temper
                                                                    vapourPressureDeficit);
     
     // Convert evapotranpiration to inches
-    float evapotranspirationIn = mmToIn(evapotranspirationMm);
-    
-    return round(evapotranspirationIn * 1000) / 1000.0;
+    return mmToIn(evapotranspirationMm);
 }
 
 
@@ -201,11 +197,11 @@ float PenmanMonteith::getExtraterrestrialRadiationDaily(float inverseRelativeDis
 }
 
 float PenmanMonteith::getInverseRelativeDistanceEarthSun(int dayOfYear) {
-    return 1 + (0.033 * cos(((2 * M_PI) / 365) * dayOfYear));
+    return 1.0 + (0.033 * cos(((2.0 * M_PI) / 365.0) * (float) dayOfYear));
 }
 
 float PenmanMonteith::getSolarDeclination(int dayOfYear) {
-    return 0.409 * sin((((2 * M_PI)/365)*dayOfYear)-1.39);
+    return 0.409 * sin((((2.0 * M_PI)/365.0)*dayOfYear)-1.39);
 }
 
 float PenmanMonteith::getSunsetHourAngle(float latitude,float solarDeclination) {

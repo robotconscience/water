@@ -65,6 +65,9 @@ void ofApp::setup(){
     files.setOption(ParticleSystem::DETECT_COLLISIONS, true);
     
     screenFBO.allocate(ofGetWidth(), ofGetHeight());
+    
+    // setup weather API
+    weatherManager.setup();
 }
 
 //--------------------------------------------------------------

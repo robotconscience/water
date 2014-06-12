@@ -5,6 +5,7 @@
 //  C++ port of https://github.com/allanglen/evapotrans-php
 
 #pragma once
+#include <iostream.h>
 #include <stdint.h>
 #include <stdio.h>      
 #include <time.h>
@@ -58,8 +59,8 @@ private:
      * Parameters:
      *  temperatureMinF - Minimum temperature in farenheit
      *  temperatureMaxF - Maximum temperature in farenheit
-     *  relativeHumidityMin - Minimum relative humidity (percent)
-     *  relativeHumidityMax - Maximum relative humidity (percent)
+     *  relativeHumidityMin - Minimum relative humidity (percent, 0-100)
+     *  relativeHumidityMax - Maximum relative humidity (percent, 0-100)
      *  windspeedMilesPerHour - Wind speed in miles per hour
      *
      * Returns:
