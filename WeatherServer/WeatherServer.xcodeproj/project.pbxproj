@@ -11,6 +11,8 @@
 		012C119B1949ED2300E1888A /* ofxLabFlexParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C118B1949ED2300E1888A /* ofxLabFlexParticleSystem.cpp */; };
 		012C119C1949ED2300E1888A /* ofxLabFlexQuad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C118D1949ED2300E1888A /* ofxLabFlexQuad.cpp */; };
 		012C119D1949ED2300E1888A /* ofxLabFlexVectorField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C118F1949ED2300E1888A /* ofxLabFlexVectorField.cpp */; };
+		012C11C5194A0F6600E1888A /* WeatherManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C11C3194A0F6600E1888A /* WeatherManager.cpp */; };
+		012C11C8194A104200E1888A /* PenmanMonteith.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C11C6194A104200E1888A /* PenmanMonteith.cpp */; };
 		04C82720B149CE576B8CBB06 /* ofxUIToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48CCCEA0C681DE8B4945111B /* ofxUIToggle.cpp */; };
 		084025DA517D8329301FE1B6 /* ofxUIEventArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8896AC3BECAAA504E3828F4 /* ofxUIEventArgs.cpp */; };
 		1587708E3CAC72997E43504E /* ofxUIRangeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2813E36CEFD8D1C1B70E600 /* ofxUIRangeSlider.cpp */; };
@@ -137,6 +139,11 @@
 		012C11951949ED2300E1888A /* 3DUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 3DUtils.h; sourceTree = "<group>"; };
 		012C11961949ED2300E1888A /* AppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtils.h; sourceTree = "<group>"; };
 		012C11971949ED2300E1888A /* ofxRCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxRCUtils.h; sourceTree = "<group>"; };
+		012C11C1194A007900E1888A /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		012C11C3194A0F6600E1888A /* WeatherManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WeatherManager.cpp; sourceTree = "<group>"; };
+		012C11C4194A0F6600E1888A /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
+		012C11C6194A104200E1888A /* PenmanMonteith.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PenmanMonteith.cpp; sourceTree = "<group>"; };
+		012C11C7194A104200E1888A /* PenmanMonteith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenmanMonteith.h; sourceTree = "<group>"; };
 		01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
 		02677FA320D6C63B228A7562 /* ofxUIWidgetWithLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIWidgetWithLabel.h; path = ../../../addons/ofxUI/src/ofxUIWidgetWithLabel.h; sourceTree = SOURCE_ROOT; };
 		02FF3B8D243CFB85AE0909EB /* ofxUI2DGraph.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxUI2DGraph.cpp; path = ../../../addons/ofxUI/src/ofxUI2DGraph.cpp; sourceTree = SOURCE_ROOT; };
@@ -788,6 +795,11 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				012C11C1194A007900E1888A /* FileManager.h */,
+				012C11C3194A0F6600E1888A /* WeatherManager.cpp */,
+				012C11C4194A0F6600E1888A /* WeatherManager.h */,
+				012C11C6194A104200E1888A /* PenmanMonteith.cpp */,
+				012C11C7194A104200E1888A /* PenmanMonteith.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -902,6 +914,7 @@
 				012C119D1949ED2300E1888A /* ofxLabFlexVectorField.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				012C11C5194A0F6600E1888A /* WeatherManager.cpp in Sources */,
 				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
 				933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */,
 				9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */,
@@ -916,6 +929,7 @@
 				F1AC6AEFB9B93C6AC45C9CA8 /* Events.cpp in Sources */,
 				A78C77753D562AE8F0E928ED /* Connection.cpp in Sources */,
 				C6C3882A0B0872D1485F3874 /* Client.cpp in Sources */,
+				012C11C8194A104200E1888A /* PenmanMonteith.cpp in Sources */,
 				A08D840E5DC2C6A7F0E514BC /* ofxSpacebrew.cpp in Sources */,
 				012C119C1949ED2300E1888A /* ofxLabFlexQuad.cpp in Sources */,
 				9F5C6DD965B4F3A6DB5B88F8 /* ofxUI2DGraph.cpp in Sources */,
