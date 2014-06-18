@@ -3,6 +3,7 @@ cd ../../addons
 PREFIX="git clone https://github.com/"
 
 ${PREFIX}robotconscience/ofxCoreLocation
+${PREFIX}robotconscience/ofxRCUtils
 ${PREFIX}robotconscience/ofxLabFlexParticleSystem
 ${PREFIX}patriciogonzalezvivo/ofxFluid
 ${PREFIX}patriciogonzalezvivo/ofxFx
