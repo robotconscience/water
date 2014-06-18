@@ -7,15 +7,30 @@ void ofApp::setup(){
     ofAddListener(locationGetter.onError, this, &ofApp::onError);
     
     locationGetter.getLocation();
-    weatherAPI.setup();
     
     websocket.connect("localhost", 9000);
     websocket.addListener(this);
+    
+    precipitation = evapotranspiration = -1;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    if ( precipitation != -1 && evapotranspiration != -1 ){
+        if ( evapoTimer - evapoLast > evaporateFileEvery ){
+            cout <<"SEND"<<endl;
+            ofDirectory dir;
+            dir.allowExt("jpg");
+            int num = dir.listDir("files");
+            if ( num > 0 ){
+                int ind = floor( ofRandom(0, num));
+                fileHandler.send(dir.getPath(ind), "testClient", currentLocation.latitude, currentLocation.longitude, websocket);
+            } else {
+                cout <<"NO FILES"<<endl;
+            }
+            evapoTimer = evapoLast = ofGetElapsedTimeMillis();
+        }
+    }
 }
 
 //--------------------------------------------------------------
@@ -27,17 +42,17 @@ void ofApp::draw(){
 void ofApp::onLocation( Location & loc ){
     currentLocation = loc;
     cout <<"got location"<<endl;
-    weatherAPI.lookupEvaporation(loc.latitude, loc.longitude);
+    
+    // HERE: SEND!
+    stringstream ss;
+    ss<<"{\"lat\":\""<<loc.latitude<<"\",\"long\":\""<< loc.longitude<< "\"}";
+    websocket.send(ss.str());
 }
 
 //--------------------------------------------------------------
 void ofApp::onError( string & event ){
     cout << "error "<<event << endl;
-}
-
-//--------------------------------------------------------------
-void ofApp::onEvaporationLookup( int & value ){
-    cout << "evaporation: "<<value<<endl;
+    locationGetter.getLocation();
 }
 
 //--------------------------------------------------------------
@@ -64,6 +79,18 @@ void ofApp::onIdle( ofxLibwebsockets::Event & m ){
 void ofApp::onMessage( ofxLibwebsockets::Event & m ){
     if (m.isBinary){
         fileHandler.receive(m);
+    } else {
+        if ( !m.json.isNull() ){
+            precipitation = ofToFloat( m.json["precipitation"].asString());
+            evapotranspiration = ofToFloat( m.json["evapotranspiration"].asString());
+            
+            // 1 inch = 1 file/second
+            evaporateFileEvery = ofMap(evapotranspiration, 0.0, 1.0, /*24 * 60 **/ 60 * 1000, 1000);
+            cout << evaporateFileEvery << endl;
+            evapoTimer = evapoLast = ofGetElapsedTimeMillis();
+        } else {
+            cout <<"fucked json"<<endl;
+        }
     }
 }
 
@@ -72,18 +99,6 @@ void ofApp::onBroadcast( ofxLibwebsockets::Event & m ){}
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if ( key == 's' ){
-        cout <<"SEND"<<endl;
-        ofDirectory dir;
-        dir.allowExt("jpg");
-        int num = dir.listDir("files");
-        if ( num > 0 ){
-            int ind = floor( ofRandom(0, num));
-            fileHandler.send(dir.getPath(ind), "testClient", currentLocation.latitude, currentLocation.longitude, websocket);
-        } else {
-            cout <<"NO FILES"<<endl;
-        }
-    }
 }
 
 //--------------------------------------------------------------

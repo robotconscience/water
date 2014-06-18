@@ -34,6 +34,9 @@ class ofApp : public ofBaseApp{
         // file handling
         FileClient fileHandler;
     
+        float precipitation, evapotranspiration;
+        int evaporateFileEvery, evapoTimer, evapoLast;
+    
         // websocket stuff
         ofxLibwebsockets::Client websocket;
         void onConnect( ofxLibwebsockets::Event & m );
@@ -42,8 +45,4 @@ class ofApp : public ofBaseApp{
         void onIdle( ofxLibwebsockets::Event & m );
         void onMessage( ofxLibwebsockets::Event & m );
         void onBroadcast( ofxLibwebsockets::Event & m );
-    
-        // remove me!
-        WeatherManager weatherAPI;
-        void onEvaporationLookup( int & value );
 };

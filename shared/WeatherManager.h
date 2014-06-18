@@ -27,6 +27,14 @@ struct WeatherConditions
     int lastUpdated;
 };
 
+struct EvapPrecipResponse
+{
+    int response_id; // tied to WUndergroudAPI call
+    float evapotranspiration;
+    float precipitation;
+    float lat, lon;
+};
+
 class WeatherManager
 {
 public:
@@ -41,13 +49,12 @@ public:
         ofAddListener(api.onNewResponse, this, &WeatherManager::onAPIResponse);
     }
     
-    float latitude;
-    
     /**
      * OK, it's actually evapotranspiration...
      */
-    void lookupEvaporation( float lat, float lon ){
-        latitude = lat;
+    int lookupEvaporation( float lat, float lon ){
+        manipulateLatLong( lat, lon );
+        
         // first: have we looked this up recently?
         string ll = ofToString(lat)+":"+ofToString(lon);
         bool bFound = false;
@@ -56,10 +63,12 @@ public:
             WeatherConditions curr = currentConditions[ll];
             int time = ofGetElapsedTimeMillis() - curr.lastUpdated;
             if( time < refreshRate){
+                //TODO: NOTIFY EVENT WITH CURRENT PRECIP!
                 return;
             }
         }
         
+        // new request
         if ( !bFound ){
             currentConditions[ll] = WeatherConditions();
             currentConditions[ll].lat = lat;
@@ -67,13 +76,35 @@ public:
         }
         currentConditions[ll].lastUpdated = ofGetElapsedTimeMillis();
         
-        WUndergroundResponse & req = api.getConditionsLatLong(lat, lon);
-        req.user_data = (void *) &currentConditions[ll];
-        // to-do: do we need to keep track of these requests?
+        // make API call
+        WUndergroundResponse req = api.getConditionsLatLong(lat, lon);
+        
+        // store in outgoing
+        outgoingResponses.push_back( EvapPrecipResponse() );
+        outgoingResponses.back().response_id = req.response_id;
+        outgoingResponses.back().lat = lat;
+        outgoingResponses.back().lon = lon; // should these be the unmanipulated ones?
+        
+        return req.response_id;
     }
     
     void onAPIResponse( WUndergroundResponse & response ){
-        //WeatherConditions * curr = (WeatherConditions*) response.user_data;
+        // find outgoing response
+        EvapPrecipResponse outgoing;
+        outgoing.lat = -1000;
+        
+        for ( int i=0; i<outgoingResponses.size(); i++ ){
+            if ( outgoingResponses[i].response_id == response.response_id ){
+                outgoing = outgoingResponses[i]; // copy that shit
+                outgoingResponses.erase(outgoingResponses.begin() + i );
+                break;
+            }
+        }
+        
+        if ( outgoing.lat == -1000 ){
+            ofLogError()<<"[WeatherManager] Something went wrong!";
+        }
+        
         string read;
         response.results_xml.copyXmlToString(read);
         
@@ -85,6 +116,7 @@ public:
         
         float tempMin = xml.getValue("temp_f", 0.0);
         float tempMax = xml.getValue("temp_f", 0.0);
+        float precipToday = xml.getValue("precip_today_in", 0.0);
         string humid_str = xml.getValue("relative_humidity", "0");
         humid_str = humid_str.substr(0, humid_str.length()-1); // trim off %
         float humidMin = ofToFloat(humid_str);
@@ -95,16 +127,21 @@ public:
         xml.popTag();
         
         // return evapotrans
-        float trans = penman.getEvapotranspiration(latitude, tempMin, tempMax, humidMin, humidMax, windSpeed);
-        ofNotifyEvent(onEvaporationLookup, trans, this);
-        cout << trans << endl;
+        outgoing.precipitation = precipToday;
+        outgoing.evapotranspiration = penman.getEvapotranspiration(outgoing.lat, tempMin, tempMax, humidMin, humidMax, windSpeed);
+        ofNotifyEvent(onEvaporationLookup, outgoing, this);
     }
     
-    ofEvent<float> onEvaporationLookup;
+    ofEvent<EvapPrecipResponse> onEvaporationLookup;
     
 private:
     int refreshRate;
-    map<string, WeatherConditions> currentConditions;
+    map<string, WeatherConditions>  currentConditions;
+    vector<EvapPrecipResponse>      outgoingResponses;
     WUndergroundAPI api;
     PenmanMonteith penman;
+    
+    void manipulateLatLong( float & lat, float & lon ){
+        // nothing for now
+    }
 };

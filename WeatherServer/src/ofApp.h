@@ -34,6 +34,7 @@ class ofApp : public ofBaseApp{
     
         // weather API manager
         WeatherManager weatherManager;
+        void onEvaporationLookup( EvapPrecipResponse & value );
     
         void onConnect( ofxLibwebsockets::Event & m );
         void onOpen( ofxLibwebsockets::Event & m );
@@ -41,4 +42,7 @@ class ofApp : public ofBaseApp{
         void onIdle( ofxLibwebsockets::Event & m );
         void onMessage( ofxLibwebsockets::Event & m );
         void onBroadcast( ofxLibwebsockets::Event & m );
+    
+        // map for weather lookup
+        map< int, ofxLibwebsockets::Connection*> processingConnections;
 };

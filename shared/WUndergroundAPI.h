@@ -67,7 +67,7 @@ public:
      * see: http://www.wunderground.com/weather/api/d/docs?d=data/index&MR=1
      */
     
-    WUndergroundResponse & getConditionsByGeo( string geo, WUAPIFormat format = FORMAT_XML ){
+    WUndergroundResponse getConditionsByGeo( string geo, WUAPIFormat format = FORMAT_XML ){
         return makeCall( "geolookup/conditions", "", geo );
     }
     
@@ -75,12 +75,12 @@ public:
      * Query conditions by latitude + longitude
      */
     
-    WUndergroundResponse & getConditionsLatLong( float lat, float lon, WUAPIFormat format = FORMAT_XML ){
+    WUndergroundResponse getConditionsLatLong( float lat, float lon, WUAPIFormat format = FORMAT_XML ){
         return makeCall( "conditions", "", ofToString(lat) +","+ofToString(lon) );
     }
     
     /** Raw API call **/
-    WUndergroundResponse & makeCall( string features, string settings, string query, WUAPIFormat format = FORMAT_XML){
+    WUndergroundResponse makeCall( string features, string settings, string query, WUAPIFormat format = FORMAT_XML){
         vector<string> wu_features;
         vector<string> wu_settings;
         
@@ -89,7 +89,7 @@ public:
         return makeCall( wu_features, wu_settings, query, format );
     }
     
-    WUndergroundResponse & makeCall( vector<string> features, vector<string> settings, string query, WUAPIFormat format = FORMAT_XML){
+    WUndergroundResponse makeCall( vector<string> features, vector<string> settings, string query, WUAPIFormat format = FORMAT_XML){
         response_id++;
         
         WUndergroundResponse req;
