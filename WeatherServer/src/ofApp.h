@@ -1,11 +1,17 @@
 #pragma once
 
 #include "ofMain.h"
+
+// addons
 #include "ofxFluid.h"
-#include "ofxSpacebrew.h"
+#include "ofxLibwebsockets.h"
+//#include "ofxSpacebrew.h"
 #include "ofxRCUtils.h"
 #include "ofxLabFlexParticleSystem.h"
+
+// project code
 #include "WeatherManager.h"
+#include "FileManager.h"
 
 class ofApp : public ofBaseApp{
 
@@ -25,6 +31,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
         // server
+        FileManager manager;
+        ofxLibwebsockets::Server websocketServer;
     
         // wind simulation
         ofLight light;

@@ -402,6 +402,7 @@
 				012C11CE194A447800E1888A /* WeatherManager.cpp */,
 				012C11CF194A447800E1888A /* WeatherManager.h */,
 				012C11D0194A447800E1888A /* WUndergroundAPI.h */,
+				012C11C1194A007900E1888A /* FileManager.h */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -799,7 +800,6 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				012C11C1194A007900E1888A /* FileManager.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
