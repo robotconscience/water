@@ -4,3 +4,4 @@ DerivedData
 xcuserdatad
 xcuserdata
 api_key.txt
+*.xccheckout
