@@ -3,11 +3,9 @@
 #include "ofMain.h"
 
 // addons
-#include "ofxFluid.h"
 #include "ofxLibwebsockets.h"
 //#include "ofxSpacebrew.h"
 #include "ofxRCUtils.h"
-#include "ofxLabFlexParticleSystem.h"
 
 // project code
 #include "WeatherManager.h"
@@ -34,24 +32,13 @@ class ofApp : public ofBaseApp{
         FileManager manager;
         ofxLibwebsockets::Server websocketServer;
     
-        // wind simulation
-        ofLight light;
-        ofMesh sphere;
-        ofxFluid fluid;
-        
-        ofVec2f oldM;
-        int     width,height;
-        bool    bPaint, bObstacle, bBounding, bClear;
-    
-        ofPixels velPix;
-        bool    bNeedToRead;
-        ofVec2f getVelocityLatLong( float lat, float lon );
-        ofVec2f getVelocity( float x, float y );
-    
         // weather API manager
         WeatherManager weatherManager;
     
-        // files
-        ofFbo fileFBO, screenFBO;
-        lab::ParticleSystem files;
+        void onConnect( ofxLibwebsockets::Event & m );
+        void onOpen( ofxLibwebsockets::Event & m );
+        void onClose( ofxLibwebsockets::Event & m );
+        void onIdle( ofxLibwebsockets::Event & m );
+        void onMessage( ofxLibwebsockets::Event & m );
+        void onBroadcast( ofxLibwebsockets::Event & m );
 };

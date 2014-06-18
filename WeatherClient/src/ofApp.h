@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxCoreLocation.h"
+#include "ofxLibwebsockets.h"
+#include "FileClient.h"
 
 // to be removed
 #include "WeatherManager.h"
@@ -28,6 +30,18 @@ class ofApp : public ofBaseApp{
         Location        currentLocation;
         void onLocation( Location & loc );
         void onError( string & event );
+    
+        // file handling
+        FileClient fileHandler;
+    
+        // websocket stuff
+        ofxLibwebsockets::Client websocket;
+        void onConnect( ofxLibwebsockets::Event & m );
+        void onOpen( ofxLibwebsockets::Event & m );
+        void onClose( ofxLibwebsockets::Event & m );
+        void onIdle( ofxLibwebsockets::Event & m );
+        void onMessage( ofxLibwebsockets::Event & m );
+        void onBroadcast( ofxLibwebsockets::Event & m );
     
         // remove me!
         WeatherManager weatherAPI;

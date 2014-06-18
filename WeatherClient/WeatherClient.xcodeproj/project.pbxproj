@@ -127,6 +127,8 @@
 		012C11D6194A449100E1888A /* WeatherManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WeatherManager.cpp; sourceTree = "<group>"; };
 		012C11D7194A449100E1888A /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
 		012C11D8194A449100E1888A /* WUndergroundAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUndergroundAPI.h; sourceTree = "<group>"; };
+		0167E2911952187E0083C5EC /* FileClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileClient.h; sourceTree = "<group>"; };
+		0167E29319521B810083C5EC /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
 		02677FA320D6C63B228A7562 /* ofxUIWidgetWithLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIWidgetWithLabel.h; path = ../../../addons/ofxUI/src/ofxUIWidgetWithLabel.h; sourceTree = SOURCE_ROOT; };
 		02FF3B8D243CFB85AE0909EB /* ofxUI2DGraph.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxUI2DGraph.cpp; path = ../../../addons/ofxUI/src/ofxUI2DGraph.cpp; sourceTree = SOURCE_ROOT; };
@@ -307,6 +309,8 @@
 				012C11D6194A449100E1888A /* WeatherManager.cpp */,
 				012C11D7194A449100E1888A /* WeatherManager.h */,
 				012C11D8194A449100E1888A /* WUndergroundAPI.h */,
+				0167E2911952187E0083C5EC /* FileClient.h */,
+				0167E29319521B810083C5EC /* FileUtils.h */,
 			);
 			name = shared;
 			path = ../../shared;
