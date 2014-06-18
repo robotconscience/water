@@ -1,10 +1,9 @@
 #include "ofApp.h"
 
+bool bSendPlz = true;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofEnableAlphaBlending();
-    ofSetCircleResolution(100);
-    
     // setup weather API
     weatherManager.setup();
     ofxLibwebsockets::ServerOptions options = ofxLibwebsockets::defaultServerOptions();
@@ -15,16 +14,21 @@ void ofApp::setup(){
     
     websocketServer.setup(options);
     websocketServer.addListener(this);
+    
+    bSendPlz = false;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    if ( bSendPlz ){
+        bSendPlz = false;
+        
+        manager.sendAllFiles( websocketServer, 40.708581, -73.952551);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofBackgroundGradient(ofColor::gray, ofColor::black, OF_GRADIENT_LINEAR);
-    ofDisableDepthTest();
 }
 
 //--------------------------------------------------------------
@@ -38,18 +42,17 @@ void ofApp::onOpen( ofxLibwebsockets::Event & m ){
 
 //--------------------------------------------------------------
 void ofApp::onClose( ofxLibwebsockets::Event & m ){
-    
+    manager.removeConnection(m.conn);
 }
 
 //--------------------------------------------------------------
-void ofApp::onIdle( ofxLibwebsockets::Event & m ){
-    
-}
+void ofApp::onIdle( ofxLibwebsockets::Event & m ){}
 
 //--------------------------------------------------------------
 void ofApp::onMessage( ofxLibwebsockets::Event & m ){
     if (m.isBinary){
         manager.addNewFile(m);
+        bSendPlz = true;
     }
 }
 
@@ -59,7 +62,6 @@ void ofApp::onBroadcast( ofxLibwebsockets::Event & m ){}
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if ( key == 's'){
-        manager.sendAllFiles( websocketServer, 40.708581, -73.952551);
     }
 }
 

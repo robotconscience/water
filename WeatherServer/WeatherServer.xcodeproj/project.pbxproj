@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		012C11D1194A447800E1888A /* PenmanMonteith.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C11CC194A447800E1888A /* PenmanMonteith.cpp */; };
 		012C11D2194A447800E1888A /* WeatherManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012C11CE194A447800E1888A /* WeatherManager.cpp */; };
-		0167E289195211C40083C5EC /* libturbojpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0167E27E195211C40083C5EC /* libturbojpeg.dylib */; };
-		0167E28B195211C40083C5EC /* ofxTurboJpeg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0167E283195211C40083C5EC /* ofxTurboJpeg.cpp */; };
-		0167E28F195211D70083C5EC /* libturbojpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0167E27E195211C40083C5EC /* libturbojpeg.dylib */; };
+		0167E298195230B00083C5EC /* FileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0167E296195230B00083C5EC /* FileManager.cpp */; };
 		04C82720B149CE576B8CBB06 /* ofxUIToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48CCCEA0C681DE8B4945111B /* ofxUIToggle.cpp */; };
 		084025DA517D8329301FE1B6 /* ofxUIEventArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8896AC3BECAAA504E3828F4 /* ofxUIEventArgs.cpp */; };
 		1587708E3CAC72997E43504E /* ofxUIRangeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2813E36CEFD8D1C1B70E600 /* ofxUIRangeSlider.cpp */; };
@@ -114,7 +112,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
-				0167E28F195211D70083C5EC /* libturbojpeg.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,18 +123,14 @@
 		012C11951949ED2300E1888A /* 3DUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 3DUtils.h; sourceTree = "<group>"; };
 		012C11961949ED2300E1888A /* AppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtils.h; sourceTree = "<group>"; };
 		012C11971949ED2300E1888A /* ofxRCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxRCUtils.h; sourceTree = "<group>"; };
-		012C11C1194A007900E1888A /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		012C11CC194A447800E1888A /* PenmanMonteith.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PenmanMonteith.cpp; path = ../../shared/PenmanMonteith.cpp; sourceTree = "<group>"; };
 		012C11CD194A447800E1888A /* PenmanMonteith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PenmanMonteith.h; path = ../../shared/PenmanMonteith.h; sourceTree = "<group>"; };
 		012C11CE194A447800E1888A /* WeatherManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WeatherManager.cpp; path = ../../shared/WeatherManager.cpp; sourceTree = "<group>"; };
 		012C11CF194A447800E1888A /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherManager.h; path = ../../shared/WeatherManager.h; sourceTree = "<group>"; };
 		012C11D0194A447800E1888A /* WUndergroundAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WUndergroundAPI.h; path = ../../shared/WUndergroundAPI.h; sourceTree = "<group>"; };
-		0167E27B195211C40083C5EC /* turbojpeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = turbojpeg.h; sourceTree = "<group>"; };
-		0167E27E195211C40083C5EC /* libturbojpeg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libturbojpeg.dylib; sourceTree = "<group>"; };
-		0167E281195211C40083C5EC /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
-		0167E283195211C40083C5EC /* ofxTurboJpeg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTurboJpeg.cpp; sourceTree = "<group>"; };
-		0167E284195211C40083C5EC /* ofxTurboJpeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTurboJpeg.h; sourceTree = "<group>"; };
 		0167E29219521B1B0083C5EC /* FileUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../../shared/FileUtils.h; sourceTree = "<group>"; };
+		0167E296195230B00083C5EC /* FileManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileManager.cpp; path = ../../shared/FileManager.cpp; sourceTree = "<group>"; };
+		0167E297195230B00083C5EC /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileManager.h; path = ../../shared/FileManager.h; sourceTree = "<group>"; };
 		01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
 		02677FA320D6C63B228A7562 /* ofxUIWidgetWithLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIWidgetWithLabel.h; path = ../../../addons/ofxUI/src/ofxUIWidgetWithLabel.h; sourceTree = SOURCE_ROOT; };
 		02FF3B8D243CFB85AE0909EB /* ofxUI2DGraph.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxUI2DGraph.cpp; path = ../../../addons/ofxUI/src/ofxUI2DGraph.cpp; sourceTree = SOURCE_ROOT; };
@@ -293,7 +286,6 @@
 				E45BE97F0E8CC7DD009D7055 /* CoreAudio.framework in Frameworks */,
 				E45BE9800E8CC7DD009D7055 /* CoreFoundation.framework in Frameworks */,
 				E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */,
-				0167E289195211C40083C5EC /* libturbojpeg.dylib in Frameworks */,
 				E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */,
 				E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */,
 				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
@@ -330,76 +322,16 @@
 		012C11CB194A447000E1888A /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				0167E296195230B00083C5EC /* FileManager.cpp */,
+				0167E297195230B00083C5EC /* FileManager.h */,
 				012C11CC194A447800E1888A /* PenmanMonteith.cpp */,
 				012C11CD194A447800E1888A /* PenmanMonteith.h */,
 				012C11CE194A447800E1888A /* WeatherManager.cpp */,
 				012C11CF194A447800E1888A /* WeatherManager.h */,
 				012C11D0194A447800E1888A /* WUndergroundAPI.h */,
-				012C11C1194A007900E1888A /* FileManager.h */,
 				0167E29219521B1B0083C5EC /* FileUtils.h */,
 			);
 			name = shared;
-			sourceTree = "<group>";
-		};
-		0167E259195211C40083C5EC /* ofxTurboJpeg */ = {
-			isa = PBXGroup;
-			children = (
-				0167E278195211C40083C5EC /* libs */,
-				0167E281195211C40083C5EC /* Readme.md */,
-				0167E282195211C40083C5EC /* src */,
-			);
-			name = ofxTurboJpeg;
-			path = ../../../addons/ofxTurboJpeg;
-			sourceTree = "<group>";
-		};
-		0167E278195211C40083C5EC /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				0167E279195211C40083C5EC /* turbo-jpeg */,
-			);
-			path = libs;
-			sourceTree = "<group>";
-		};
-		0167E279195211C40083C5EC /* turbo-jpeg */ = {
-			isa = PBXGroup;
-			children = (
-				0167E27A195211C40083C5EC /* include */,
-				0167E27C195211C40083C5EC /* lib */,
-			);
-			path = "turbo-jpeg";
-			sourceTree = "<group>";
-		};
-		0167E27A195211C40083C5EC /* include */ = {
-			isa = PBXGroup;
-			children = (
-				0167E27B195211C40083C5EC /* turbojpeg.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		0167E27C195211C40083C5EC /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				0167E27D195211C40083C5EC /* osx */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		0167E27D195211C40083C5EC /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				0167E27E195211C40083C5EC /* libturbojpeg.dylib */,
-			);
-			path = osx;
-			sourceTree = "<group>";
-		};
-		0167E282195211C40083C5EC /* src */ = {
-			isa = PBXGroup;
-			children = (
-				0167E283195211C40083C5EC /* ofxTurboJpeg.cpp */,
-				0167E284195211C40083C5EC /* ofxTurboJpeg.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		108C8D494BF6997F7A730F6E /* include */ = {
@@ -518,12 +450,11 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				0167E259195211C40083C5EC /* ofxTurboJpeg */,
-				012C11911949ED2300E1888A /* ofxRCUtils */,
-				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 				AAE50E341C7382A4EF10AF5A /* ofxLibwebsockets */,
+				012C11911949ED2300E1888A /* ofxRCUtils */,
 				961F0189D3FC79A9A11F56E1 /* ofxSpacebrew */,
 				A492CE86424AB8905550BFD8 /* ofxUI */,
+				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -813,6 +744,7 @@
 				9EF1133BC23669A5C94FE30F /* jsoncpp.cpp in Sources */,
 				F3AD9E2A2E56B6AF32A0BDAF /* Server.cpp in Sources */,
 				6D73A566CFEC0B462FE6E43C /* Reactor.cpp in Sources */,
+				0167E298195230B00083C5EC /* FileManager.cpp in Sources */,
 				86135253DC7909CA8590E157 /* Protocol.cpp in Sources */,
 				012C11D1194A447800E1888A /* PenmanMonteith.cpp in Sources */,
 				F1AC6AEFB9B93C6AC45C9CA8 /* Events.cpp in Sources */,
@@ -834,7 +766,6 @@
 				22030CBDCC25D815E7ED6757 /* ofxUIFPSSlider.cpp in Sources */,
 				3D4EA8E172D3E4A30FEFA969 /* ofxUIImage.cpp in Sources */,
 				7F2CD93F681F3C1547B3BF2C /* ofxUIImageButton.cpp in Sources */,
-				0167E28B195211C40083C5EC /* ofxTurboJpeg.cpp in Sources */,
 				FBD0CD0AFE3849C14E829CAF /* ofxUIImageSampler.cpp in Sources */,
 				26874B150C8535AEA0F24C8C /* ofxUIImageSlider.cpp in Sources */,
 				FB8AA9FA6535767BE31806BC /* ofxUIImageToggle.cpp in Sources */,
