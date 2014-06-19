@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
+    ofSetFrameRate(60);
     ofAddListener(locationGetter.onLocationRetrieved, this, &ofApp::onLocation);
     ofAddListener(locationGetter.onError, this, &ofApp::onError);
     
@@ -17,7 +17,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     if ( precipitation != -1 && evapotranspiration != -1 ){
-        if ( evapoTimer - evapoLast > evaporateFileEvery ){
+        if ( ofGetElapsedTimeMillis() - evapoLast > evaporateFileEvery ){
             cout <<"SEND"<<endl;
             ofDirectory dir;
             dir.allowExt("jpg");

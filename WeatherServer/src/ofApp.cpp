@@ -4,6 +4,7 @@ bool bSendPlz = true;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofSetFrameRate(60);
     // setup weather API
     weatherManager.setup();
     ofAddListener(weatherManager.onEvaporationLookup, this, &ofApp::onEvaporationLookup);
